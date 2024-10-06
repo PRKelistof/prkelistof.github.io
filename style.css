@@ -40,7 +40,9 @@ body {
     grid-gap: 10px;
     margin: 20px;
     width: 100%;
-    margin-top: 80px; /* 确保假名方格不被 header 遮挡 */
+    margin-top: 80px; /* 确保不被 header 遮挡 */
+    height: calc(100vh - 80px); /* 留出 header 的空间 */
+    overflow: auto; /* 允许滚动 */
 }
 
 /* 假名方格样式，使用Flexbox让内容居中 */
@@ -79,16 +81,20 @@ body {
 
 @media (max-width: 768px) {
     .kana-grid {
+        display: grid;
         grid-template-columns: repeat(5, 1fr); /* 手机端横向5格 */
-        grid-auto-rows: minmax(60px, auto);
+        grid-auto-rows: minmax(60px, auto); /* 每个方格最小高度 */
+        overflow-x: auto; /* 允许横向滚动 */
     }
 }
 
 @media (min-width: 769px) {
     .kana-grid {
+        display: grid;
         grid-template-rows: repeat(5, minmax(60px, 1fr)); /* 桌面端纵向5格 */
         grid-auto-flow: column; /* 横向瀑布流 */
         grid-auto-columns: minmax(60px, 1fr);
+        overflow-y: auto; /* 允许纵向滚动 */
     }
 }
 

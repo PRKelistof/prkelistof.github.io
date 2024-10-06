@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日语假名学习</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- About 模态窗口 -->
+<div id="about-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <p>Code by Matt , Build in 2024/10/6</p> <!-- 在这里添加署名 -->
+    </div>
+</div>
+    <!-- 顶部导航栏 -->
+<header>
+    <div class="title">Matt' Maru Website</div>
+    <div class="clock" id="clock"></div>
+    <div class="button-group">
+        <button class="pass-btn" id="pass-btn">pass</button>
+        <button class="about-btn" id="about-btn">About</button>
+    </div>
+</header>
+
+    <!-- 假名展示区 -->
+    <main>
+        <div class="kana-grid" id="kana-grid">
+            <!-- 假名方格将通过JavaScript动态加载 -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+	
+</body>
+</html>

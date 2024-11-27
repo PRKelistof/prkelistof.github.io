@@ -1,0 +1,110 @@
+/* 通用设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 顶栏 */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.top-bar .left-section {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .logo {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.top-bar .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.top-bar .clock {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 主体内容 */
+main {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+.art-section {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.art-frame {
+    flex: 1;
+    max-width: 300px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.art-frame img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.art-info {
+    flex: 2;
+    padding: 20px;
+    color: #555;
+}
+
+.art-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.art-info h2 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.art-info p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 14px;
+}

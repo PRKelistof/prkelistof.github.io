@@ -3,111 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team SYL - Official Website</title>
+    <title>Team SYL - Run on /YALICore Indev/</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- 顶栏 -->
-    <header class="top-bar">
-        <div class="left-section">
-            <span class="title">菜篮里的菜数字艺术工作室 Team SYL - Official</span>
+
+    <!-- 顶 -->
+    <header class="topbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="logo" class="logo" ondblclick="redirectToInfo()">
         </div>
-    <div class="right-section">
-    <button id="digital-art-museum" class="btn">没用的按钮</button>
-    <span id="clock" class="clock">00:00:00</span>
-</div>
+        <div class="title">
+            <h1>Team SYL</h1>
+            <p>菜篮里的菜数字艺术工作室</p>
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </header>
 
-    <!-- 主体内容 -->
+    <!-- 菜单 -->
+    <nav class="side-menu">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="#">没用</a></li>
+            <li><a href="#">没用</a></li>
+            <li><a href="#">没用</a></li>
+        </ul>
+    </nav>
+	<!-- 侧边 -->
+<nav class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <ul>
+        <li><button class="menu-item" onclick="openPopup('你点这里干什么？')">首页</button></li>
+        <li><button class="menu-item" onclick="openPopup('告诉你了没用。')">没用</button></li>
+        <li><button class="menu-item" onclick="openPopup('免责声明
+
+本网站为非营利性平台，所有内容均用于学习、交流和欣赏之目的，不涉及任何商业用途。
+	1.	字体与文字图片
+	•	本网站所使用的字体、文字图片等素材，均来自官方授权、公共资源或用户自行提供。若因字体授权问题产生争议，请提供相关证明，我们将在核实后及时处理。
+	•	若某些字体或文字图片可能涉及未明确授权的版权内容，请相关权利人及时联系我们，我们将在收到通知后尽快删除或更换相关内容。
+	2.	用户投稿
+	•	用户在本网站提交的任何内容（包括但不限于文字、图片、字体等），应确保其拥有完整版权或已获得合法授权。
+	•	若用户提交的内容侵犯第三方权利，责任由投稿者本人承担，本网站不承担任何连带责任。
+	3.	法律与合规
+	•	本网站尊重并遵守中国大陆的知识产权法律法规，如《著作权法》《商标法》《互联网信息服务管理办法》等。
+	•	若网站内容无意中侵犯了您的合法权益，请联系我们，我们将积极沟通并妥善处理。')">联系我们</button></li>
+    </ul>
+</nav>
+
+<!-- 弹窗 -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <p id="popup-text"></p>
+        <button class="popup-close" onclick="closePopup()">确定</button>
+    </div>
+</div>
+
+    <!-- 主页 -->
     <main>
-<section class="top-image-section" style="background-color: #f8f9fa;">
-    <div class="art-frame">
-        <img src="logov1.png" alt="logo">
-    </div>
-</section>
-<section class="top-image-section" style="background-color: #f8f9fa;">
-    <div class="art-frame">
-        <img src="top2v1.png" alt="顶部图片">
-		                <p>第2版修正1头图作品(Official)：参加-诚信考试?(2025)</p>
-    </div>
-</section>
-		
-		        <!-- 画作展示区域 other -->
-
-            <div class="art-info">
-                <h1>🪧公告板</h1>
-                <h2>Information</h2>
-              <p>本站启用图标。<br>纯粹盗图，无视版权，不做盈利使用。若追究侵权责任，请联系站长。</p>
-
-          </div>
+        <section class="hero">
+            <h2>ようこそ！YALI Core GUI(Indev)</h2>
+			<h2>Welcome.</h2>
         </section>
-    </main>
-        <!-- 画作展示区域 1 -->
-        <section class="art-section" style="background-color: #f8f9fa;">
-            <div class="art-frame">
-                <img src="pic1.png" alt="画作1">
-            </div>
-            <div class="art-info">
-                <h1>《最懂马哲的老师》</h1>
-                <h2>《The teacher who understands Marxist Philosophy the most》</h2>
-                <p>作者：菜篮里的菜<br>年代：2024<br>版权许可证：CC-BY-NC-ND</p>
-	            <p>无说明。</p>
-				<p><strong>なし。</strong></p>
-            </div>
+        <section class="announcement">
+            <p>🪧公告板(Beta)</p>
+            <p>本网站已经更新为YALI Core GUI(Indev)前端。</p>
+            <p>欢迎反馈问题、报告Bug问题。</p>
+            <p>Now Version::20250305a</p>
         </section>
-
-        <!-- 画作展示区域 2 -->
-        <section class="art-section" style="background-color: #e9ecef;">
-            <div class="art-frame">
-                <img src="pic2.png" alt="画作2">
-            </div>
-            <div class="art-info">
-                <h1>《女权主义者》</h1>
-                <h2>&nbsp;《A feminist》&nbsp;&nbsp;</h2>
-              <p>作者：菜篮里的菜<br>年代：2024</p>
-                <p>版权许可证：CC-0</p>
-				<p>これくそ。</p>
-				<p><strong>なし。</strong></p>
-          </div>
-        </section>
-		        <!-- 画作展示区域 3-1 -->
-        <section class="art-section" style="background-color: #f8f9fa;">
-            <div class="art-frame">
-                <img src="pic3.png" alt="画作3">
-            </div>
-            <div class="art-info">
-                <h1>《李伟（伪）》</h1>
-                <h2>《The "Fake Lee"》</h2>
-                <p>作者：Liu<br>年代：2024<br>版权许可证：CC-0</p>
-	            <p>なし？</p>
-				<p><strong>なし。</strong></p>
-            </div>
-        </section>
-        <!-- 画作展示区域 4-2 -->
-        <section class="art-section" style="background-color: #e9ecef;">
-            <div class="art-frame">
-                <img src="pic4.png" alt="画作4">
-            </div>
-            <div class="art-info">
-                <h1>《李的泪》</h1>
-                <h2>&nbsp;《The tears of Lee.》&nbsp;&nbsp;</h2>
-              <p>作者：ミズナツ<br>年代：2024</p>
-                <p>版权许可证：CC-BY-NC-ND</p>
-				<p>现存 1 份原画。(JPG文件)</p>
-				<p><strong>なし。</strong></p>
-          </div>
+        <section class="gallery">
+            <div class="gallery-item"><img src="images/1.png" alt="作品1"><div class="info"><h3>《Big Dragon(初版)》</h3><p>作者：</p><p>菜篮里的菜</p><p>2025</p><p>做为YALI CoreGUI 的吉祥物出现。</p></div></div>
+            <div class="gallery-item"><img src="images/2.png" alt="作品2"><div class="info"><h3>《Big Dragon(再版)》</h3><p>作者：</p><p>ミズナツ</p><p>2025</p></div></div>
+            <div class="gallery-item"><img src="images/3.png" alt="作品3"><div class="info"><h3>《李伟（伪）》</h3><p>作者：</p><p>留雅利</p><p>2025</p></div></div>
+            <div class="gallery-item"><img src="images/4.png" alt="作品4"><div class="info"><h3>只是在发呆</h3><p>作者：</p><p>菜篮里的菜</p><p>2025</p></div></div>
+            <div class="gallery-item"><img src="images/5.png" alt="作品5"><div class="info"><h3>Tears of Li????</h3><p>作者：</p><p>ミズナツ</p><p>2025</p></div></div>
+            <div class="gallery-item"><img src="images/6.png" alt="作品6"><div class="info"><h3>《最懂马哲的老师》</h3><p>作者：</p><p>菜篮里的菜</p><p>2025</p><p>本作品是本网站建成的间接因素。</p><p>同样的，也是工作室第一个作品。</p></div></div></div></div>
         </section>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="footer">
-        <p>© 2024 "The Vegetable basket inside-#91"Electronic Art Team. </p>
-        <p>免责声明：本网站供测试，在本网站出现的任何人物肖像，组织等均为虚构。</strong></p>
-        <p>本网站不为<strong>中国大陆</strong>的用户提供服务，遵循美利坚合众国联邦法律。若不慎进入本站，请立即退出，</strong></p>
-		<p>Disclaimer: This website is for entertainment only, and any portraits, organizations, etc. appearing on this website are fictitious.</p>
-		<p>Website Version 1.2A(20241204A)</p>
-		<p>Build on github.io</p>
+    <footer>
+        <p>&copy;2025 TeamSYL/菜篮里的菜数字艺术工作室（伪）</p>
+        <p>本网站及附属仓库以及源代码中出现的一切人物、组织、事件均为虚构，与现实无任何关系。</p></p>仅供娱乐。本网站为非营利性平台，所有内容均用于学习、交流和欣赏之目的，不涉及任何商业用途。</p>
+        <p>本网站不为中国大陆的用户提供服务。请自行退出。</p>
+        <p>版本信息 Version::</p>
+		<p>YALICore GUI(Indev) 1.0b</p>
     </footer>
+
+	
 </body>
 </html>

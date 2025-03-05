@@ -1,28 +1,41 @@
-// 实现实时时钟功能
-function updateClock() {
-    const clockElement = document.getElementById("clock");
-    const now = new Date();
-    const options = { hour12: false };
-    const timeString = now.toLocaleTimeString("zh-CN", options);
-    clockElement.textContent = timeString;
+// JavaScript Document
+
+function toggleMenu() {
+    document.querySelector(".side-menu").classList.toggle("active");
+}
+function toggleMenu() {
+    document.querySelector(".side-menu").classList.toggle("active");
 }
 
-// 初始化时钟并设置间隔
-setInterval(updateClock, 1000);
-updateClock();// JavaScript Document
-document.addEventListener("DOMContentLoaded", () => {
-    const digitalArtMuseumButton = document.getElementById("digital-art-museum");
-    const goBackButton = document.getElementById("go-back");
+// 双击有惊喜
+function redirectToInfo() {
+    window.location.href = "Information.html";
+}
+let clickCount = 0;
+const teamLogo = document.getElementById("team-logo");
+const textContent = document.getElementById("text-content");
 
-    if (digitalArtMuseumButton) {
-        digitalArtMuseumButton.addEventListener("click", () => {
-            window.location.href = "museum.html";
-        });
-    }
+if (teamLogo) {
+    teamLogo.addEventListener("click", function () {
+        clickCount++;
+        if (clickCount === 29) {
+            teamLogo.src = "images/yalicore.png";
+            textContent.style.display = "none";
+        }
+    });
+}
+// 切换侧边菜单
+function toggleMenu() {
+    document.querySelector(".side-menu").classList.toggle("active");
+}
 
-    if (goBackButton) {
-        goBackButton.addEventListener("click", () => {
-            window.location.href = "index.html";
-        });
-    }
-});
+// 弹窗
+function openPopup(message) {
+    document.getElementById("popup-text").innerText = message;
+    document.getElementById("popup").style.display = "block";
+}
+
+// 关闭弹窗
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}

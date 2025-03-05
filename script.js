@@ -19,7 +19,7 @@ if (teamLogo) {
     teamLogo.addEventListener("click", function () {
         clickCount++;
         if (clickCount === 29) {
-            teamLogo.src = "images/yalicore.png";
+            teamLogo.src = "yalicore.png";
             textContent.style.display = "none";
         }
     });

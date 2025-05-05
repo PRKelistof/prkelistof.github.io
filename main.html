@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Run2JP Karenndaa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --max-width: 900px;
+      --day-height: 45px;
+    }
+
+    @media (max-width : 373px ){
+      :root {
+        --day-height: 60px;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: "Segoe UI", "Roboto", sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      width: 100%;
+    }
+
+    .month {
+      margin-bottom: 30px;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      color: white;
+      font-size: 1.5em;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .weekday-label {
+      font-weight: bold;
+      color: white;
+      padding: 6px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .day {
+      height: var(--day-height);
+      text-align: center;
+      line-height: var(--day-height);
+      font-weight: 500;
+      color: #333;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .past {
+      background-color: #8b0000 !important; /* 深红色 */
+      color: white !important;
+    }
+
+    .special-red {
+      background-color: #8b0000 !important;
+      color: white !important;
+    }
+
+    .special-pink {
+      background-color: #ffc0cb !important;
+      color: #222 !important;
+    }
+
+    /* 背景渐变 */
+    .month-bg-0  { background: linear-gradient(to right, #000, #111); }
+    .month-bg-1  { background: linear-gradient(to right, #111, #222); }
+    .month-bg-2  { background: linear-gradient(to right, #222, #333); }
+    .month-bg-3  { background: linear-gradient(to right, #333, #444); }
+    .month-bg-4  { background: linear-gradient(to right, #444, #555); }
+    .month-bg-5  { background: linear-gradient(to right, #555, #666); }
+    .month-bg-6  { background: linear-gradient(to right, #666, #777); }
+    .month-bg-7  { background: linear-gradient(to right, #777, #888); }
+    .month-bg-8  { background: linear-gradient(to right, #888, #999); }
+
+    .month-bg-9  { background: linear-gradient(to right, #aadffd, #d0f0ff); }
+    .month-bg-10 { background: linear-gradient(to right, #c5f5ff, #e0e4ff); }
+    .month-bg-11 { background: linear-gradient(to right, #e0e4ff, #ffd8ef); }
+    .month-bg-12 { background: linear-gradient(to right, #ffd8ef, #ffeaf4); }
+  </style>
+</head>
+<body>
+  <div class="container" id="calendar-container"></div>
+
+  <script>
+    const container = document.getElementById("calendar-container");
+
+    const monthNames = [
+      "2025年5月", "2025年6月", "2025年7月", "2025年8月",
+      "2025年9月", "2025年10月", "2025年11月", "2025年12月",
+      "2026年1月", "2026年2月", "2026年3月", "2026年4月"
+    ];
+
+    const daysInMonth = [31, 30, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30];
+    const startDate = new Date(2025, 4, 1); // May 2025
+
+    const today = new Date();
+    const todayDateStr = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`;
+
+    for (let m = 0; m < 12; m++) {
+      const realMonth = (4 + m) % 12;
+      const yearOffset = Math.floor((4 + m) / 12);
+      const year = 2025 + yearOffset;
+      const days = daysInMonth[m];
+
+      const monthDiv = document.createElement("div");
+      monthDiv.className = `month month-bg-${m}`;
+      monthDiv.innerHTML = `<h2>${monthNames[m]}</h2>`;
+
+      const calendar = document.createElement("div");
+      calendar.className = "calendar";
+
+      const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+      weekdays.forEach(day => {
+        const label = document.createElement("div");
+        label.className = "weekday-label";
+        label.textContent = day;
+        calendar.appendChild(label);
+      });
+
+      const firstDay = new Date(year, realMonth, 1).getDay();
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        calendar.appendChild(empty);
+      }
+
+      for (let d = 1; d <= days; d++) {
+        const dateDiv = document.createElement("div");
+        dateDiv.className = "day";
+        dateDiv.textContent = d;
+
+        const dateStr = `${year}-${realMonth + 1}-${d}`;
+        const dateObj = new Date(year, realMonth, d);
+
+        // 特殊日期判断
+        const isSpecialRed = (year === 2025 && realMonth === 6 && d === 6);
+        const isSpecialPink = (year === 2026 && realMonth === 3 && d === 1); // 4月是 realMonth === 3
+
+        if (isSpecialRed) {
+          dateDiv.classList.add("special-red");
+        } else if (isSpecialPink) {
+          dateDiv.classList.add("special-pink");
+        } else if (dateObj < today || dateStr === todayDateStr) {
+          dateDiv.classList.add("past");
+        }
+
+        calendar.appendChild(dateDiv);
+      }
+
+      monthDiv.appendChild(calendar);
+      container.appendChild(monthDiv);
+    }
+  </script>
+</body>
+</html>
